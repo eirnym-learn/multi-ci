@@ -1,4 +1,4 @@
-name: Long CI for README
+name: dummy-ci
 
 on:
   push:
@@ -6,12 +6,8 @@ on:
       - main
     tags-ignore:
       - '*'
-    paths:
-      - README.adoc
   pull_request:
     types: [ assigned, opened, synchronize, reopened ]
-    paths:
-      - README.adoc
 
 
 concurrency:
@@ -21,11 +17,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  long-ci:
-    name: Long CI
+  dummy:
+    name: Dummy
     runs-on: ubuntu-latest
     steps:
-      - name: wait
-        run: sleep 20
-      - name: fail
-        run: exit 1
+      - name: dummy
+        run: exit 0
